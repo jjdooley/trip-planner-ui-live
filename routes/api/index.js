@@ -17,5 +17,9 @@ router.get('/attractions', function(req, res, next){
         })
 });
 
+router.get('/hotels/:id', function(req, res, next){
+    models.Hotels.findOne({where: {id: req.params.id}})
+    .then(data => res.json(data))
+})
 
 module.exports = router;

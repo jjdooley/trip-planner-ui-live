@@ -13,12 +13,16 @@ fetch('/api/attractions')
       let currParent = document.getElementById('activities-choices')
       data.activities.forEach(function(x){
         let newEl = document.createElement('option')
+        newEl.value = x.id;
+        newEl.id = x.name;
         newEl.append(x.name);
         currParent.append(newEl);
       })
       let currParent2 = document.getElementById('hotels-choices')
       data.hotels.forEach(function(x){
         let newEl = document.createElement('option')
+        newEl.value = x.id;
+        newEl.id = x.name;
         newEl.append(x.name);
         currParent2.append(newEl);
       })
@@ -31,14 +35,24 @@ fetch('/api/attractions')
         currParent3.append(newEl);
       })
       allData = data;
+      console.log(allData)
   })
   .catch(console.error);
 
 
 
   document.getElementById('hotels-add').addEventListener('click', function(){
-    let currHotel = document.getElementById();
-    
+    var currHotel = document.getElementById('hotels-choices');
+    var hotelname = currHotel.value;
+    allData.hotels.forEach(function(hotel){
+      if(hotel.id === hotelname){
+        console.log('hotel.id:', hotel.id)
+        console.log('hotelname:', hotelname)
+        console.log('hotel.place.location:', hotel.place.location)
+        buildMarker('hotels', hotel.place.location);
+      }
+    })
+      
   })
 
   document.getElementById('activities-add').addEventListener('click', function(){
