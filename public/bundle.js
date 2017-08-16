@@ -540,7 +540,7 @@ const buildMarker = __webpack_require__(4);
 
 const selectActivity = document.getElementById('activities-choices');
 const selectRest = document.getElementById('restaurants-choices');
-const selectHotel = document.getElementById('hotels-choices');
+const selectHotel = document.getElementById('hotels-choices')
 
 var allData;
 
